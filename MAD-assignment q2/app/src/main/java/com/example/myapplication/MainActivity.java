@@ -1,9 +1,5 @@
+package com.example.myapplication;
 
-package com.example.unitconverter_q1;
-
-import static com.example.unitconverter_q1.R.*;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +7,8 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import com.example.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,12 +18,15 @@ public class MainActivity extends AppCompatActivity {
     Button convertButton;
     TextView resultText;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
         boolean darkMode = sharedPreferences.getBoolean("dark_mode", false);
+        AppCompatDelegate.setDefaultNightMode(
+                darkMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+        );
+
         setContentView(R.layout.activity_main);
 
         fromSpinner = findViewById(R.id.fromUnitSpinner);
@@ -34,13 +35,15 @@ public class MainActivity extends AppCompatActivity {
         convertButton = findViewById(R.id.convertButton);
         resultText = findViewById(R.id.resultText);
 
-
-
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, units);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fromSpinner.setAdapter(adapter);
         toSpinner.setAdapter(adapter);
+
+        Button settingsButton = findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, com.example.myapplication.SettingsActivity.class));
+        });
 
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override

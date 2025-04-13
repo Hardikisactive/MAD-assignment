@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.unitconverter_q1"
+    namespace = "com.example.myapplication"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.unitconverter_q1"
+        applicationId = "com.example.myapplication"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -32,7 +32,6 @@ android {
 }
 
 dependencies {
-
 
     implementation(libs.appcompat)
     implementation(libs.material)

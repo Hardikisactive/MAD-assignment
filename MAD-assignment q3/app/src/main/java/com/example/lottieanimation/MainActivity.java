@@ -1,7 +1,5 @@
-
-package com.example.unitconverter_q1;
-
-import static com.example.unitconverter_q1.R.*;
+package com.example.lottieanimation;
+import static com.example.lottieanimation.R.*;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -26,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
         boolean darkMode = sharedPreferences.getBoolean("dark_mode", false);
+        AppCompatDelegate.setDefaultNightMode(
+                darkMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+        );
+
         setContentView(R.layout.activity_main);
 
         fromSpinner = findViewById(R.id.fromUnitSpinner);
@@ -33,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         inputValue = findViewById(R.id.inputValue);
         convertButton = findViewById(R.id.convertButton);
         resultText = findViewById(R.id.resultText);
-
-
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, units);

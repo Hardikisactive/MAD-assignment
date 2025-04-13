@@ -1,10 +1,12 @@
-package com.example.unitconverter_q1;
+package com.example.myapplication;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import com.example.myapplication.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

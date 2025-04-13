@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.unitconverter_q1"
+    namespace = "com.example.lottieanimation"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.unitconverter_q1"
+        applicationId = "com.example.lottieanimation"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -33,7 +33,6 @@ android {
 
 dependencies {
 
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -41,4 +40,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation ("com.airbnb.android:lottie:6.1.0")
+
 }
